@@ -12,6 +12,7 @@ ENV MINICONDA Miniconda3-latest-Linux-x86_64.sh
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget -q https://repo.continuum.io/miniconda/$MINICONDA \
             https://github.com/ipython-contrib/IPython-notebook-extensions/archive/master.zip \
+            https://raw.githubusercontent.com/Tsutomu-KKE/py3sci/master/notebook.json \
             http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
     bash /$MINICONDA -b -p /opt/conda && \
     conda install -y conda && \
@@ -23,8 +24,8 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     mv /ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
     unzip -q master.zip && \
     mkdir -p /root/.local/share/jupyter && \
+    mv notebook.json /root/.jupyter/nbconfig/ && \
     cd IPython-notebook-extensions-master && \
     python setup.py install && \
     rm -rf /$MINICONDA /IPython-notebook-extensions-master /master.zip /ipaexg00301* /opt/conda/pkgs/*
-COPY notebook.json /root/.jupyter/nbconfig/
 CMD ["/bin/bash"]
