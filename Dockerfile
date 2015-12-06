@@ -25,6 +25,6 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     mkdir -p /root/.local/share/jupyter && \
     cd IPython-notebook-extensions-master && \
     python setup.py install && \
-    rm -rf /$MINICONDA /IPython-notebook-extensions-master /master.zip /ipaexg00301 /opt/conda/pkgs/*
+    rm -rf /$MINICONDA /IPython-notebook-extensions-master /master.zip /ipaexg00301* /opt/conda/pkgs/*
 COPY notebook.json /root/.jupyter/nbconfig/
 CMD ["/bin/bash"]
