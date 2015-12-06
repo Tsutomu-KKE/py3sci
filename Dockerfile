@@ -23,7 +23,7 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     unzip -q ipaexg00301.zip && \
     mv /ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
     unzip -q master.zip && \
-    mkdir -p /root/.local/share/jupyter && \
+    mkdir -p /root/.local/share/jupyter /root/.jupyter/nbconfig && \
     mv notebook.json /root/.jupyter/nbconfig/ && \
     cd IPython-notebook-extensions-master && \
     python setup.py install && \
